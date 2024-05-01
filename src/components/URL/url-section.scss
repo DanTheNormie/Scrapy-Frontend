@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    
+    --active-border-color: rgb(56, 132, 233);
+    --passive-border-color: black;
+}
+
+
+
+.text-input-container {
+    
+    position: relative;
+    border: solid 1px var(--passive-border-color);
+    border-radius: 5px;
+    padding: 16.5px 14px;
+
+    &:hover{
+        cursor: text;
+    }
+
+    &:focus-within{
+        border: solid 1px var(--active-border-color);
+        outline: none;
+        
+    }
+
+    .floating-label {
+        position: absolute;
+        z-index: 10;
+        transform: translate(14px, 0px) scale(1);
+        color: gray;
+        background-color: var(--background-color);
+        font-size: 16px;
+        padding: 0px 4px;
+        transition: all 100ms;
+    }
+
+    .active-fl {
+        transform: translate(14px, -26px) scale(0.75);
+    }
+
+    .focused-fl {
+        color: var(--active-border-color);
+    }
+
+    .DraftEditor-root{
+        .DraftEditor-editorContainer,
+        .public-DraftEditor-content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            white-space: pre;
+            width: 100%;
+            
+        }
+    }
+}

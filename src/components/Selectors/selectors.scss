@@ -1,0 +1,64 @@
+.selectors-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--passive-border-color);
+    border-radius: 5px;
+    margin-top: 32px;
+    padding: 32px;
+    z-index: 0;
+    counter-reset: selectors;
+
+    &::before {
+        content: 'SELECTORS';
+        position: absolute;
+        padding: 0 4px;
+        background-color: var(--background-color);
+        top: -10px;
+        left: 30px;
+    }
+
+    /* .selector{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 1px solid var(--passive-border-color);
+        border-radius: 5px;
+        padding: 16px;
+        padding-top: 32px;
+        position: relative;
+        margin-top: 16px;
+    
+        &::before{
+            position: absolute;
+            padding: 0 4px;
+            background-color: var(--background-color);
+            top: -10px;
+            left: 20px;
+            counter-increment: selectors;
+            content:'Selector 'counter(selectors);
+        }
+
+        &>*{
+            margin: 8px 0px;
+        }
+
+        
+
+        .delete-selector-btn{
+            position: absolute;
+            background-color: var(--background-color);
+            right: 10px;
+            bottom: 6px
+        }
+    }
+
+    .add-btn-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+    } */
+    
+
+}

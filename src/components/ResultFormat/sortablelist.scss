@@ -1,0 +1,66 @@
+.result-options-container {
+    border: 1px solid var(--passive-border-color);
+    border-radius: 5px;
+    position: relative;
+    margin-top: 32px;
+    padding: 32px;
+    counter-reset: params;
+    display: flex;
+    flex-direction: column;
+
+    &>*{
+        margin: 16px 0px;
+    }
+
+    &::before {
+        content: 'RESULT OPTIONS';
+        position: absolute;
+        padding: 0 4px;
+        background-color: var(--background-color);
+        top: -10px;
+        left: 30px;
+    }
+
+
+    .sortable-list-container {
+        list-style-type: none;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 16px;
+        position: relative;
+
+
+        &::before {
+            position: absolute;
+            content: "Result Order";
+            padding: 0px 4px;
+            background-color: var(--background-color);
+            transform: translate(0px, -26px);
+        }
+
+        .sortable-selector-list-item {
+            width: 100%;
+            max-width: 400px;
+            padding: 4px;
+            /* border: 1px solid black; */
+            border-radius: 5px;
+            background-color: white;
+            margin: 16px 0px;
+            display: flex;
+            cursor: grab;
+            align-items: center;
+
+            &:active {
+                cursor: grabbing;
+            }
+
+            svg {
+                opacity: .5;
+                margin-right: 8px;
+            }
+        }
+    }
+
+
+
+}
