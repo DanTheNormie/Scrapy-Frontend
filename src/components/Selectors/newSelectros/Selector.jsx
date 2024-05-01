@@ -3,10 +3,12 @@ import { TextField, Button } from "@mui/material"
 import SegmentedButton from "./SegmentedButton"
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Height, Margin, Padding } from "@mui/icons-material";
 import { Reorder, useDragControls } from "framer-motion";
 import { ReorderIcon } from "./ReorderIcon";
+import './selectors.scss'
+
 export const Selector = ({ index, selectorInfo, updateSelectors }) => {
 
     const onNameChange = useCallback((event) => {
@@ -89,10 +91,13 @@ export const Selector = ({ index, selectorInfo, updateSelectors }) => {
 
         }
     }, [])
-
+    const [showOptions, setShowOptions] = useState(false)
     const dragControls = useDragControls();
     return <Reorder.Item 
     as="tr" 
+    onHoverStart={()=>{setShowOptions(true)}}
+    onHoverEnd={()=>{setShowOptions(false)}}
+    className="table-row"
     value={selectorInfo} 
     id={selectorInfo.uid} 
     dragListener={false} 
@@ -104,30 +109,41 @@ export const Selector = ({ index, selectorInfo, updateSelectors }) => {
             bgcolor:"#fff5"
         }
         }}>
-        <TableCell align="center" sx={{ ...tableCellStyle, borderLeftWidth: 1 }}>{index + 1}</TableCell>
-        <TableCell align="center" sx={tableCellStyle}>
+        <TableCell align="center" className="table-cell " sx={{ borderLeftWidth: 1 }}>{index + 1}</TableCell>
+        <TableCell align="center" className="table-cell">
             <TextField fullWidth variant="outlined" sx={textFieldStyle} onChange={onNameChange} value={selectorInfo.name} />
         </TableCell>
-        <TableCell align="center" sx={tableCellStyle}>
+        <TableCell align="center" className="table-cell">
             <TextField fullWidth variant="outlined" sx={textFieldStyle} onChange={onSelectorStringChange} value={selectorInfo.selector} />
         </TableCell>
-        <TableCell align="center" sx={tableCellStyle}>
+        <TableCell align="center" className="table-cell">
             <TextField fullWidth variant="outlined" sx={textFieldStyle} onChange={onTargetChange} value={selectorInfo.target} />
         </TableCell>
-        <TableCell align="center" sx={{...tableCellStyle, bgcolor:"#fff"}}>
+        <TableCell align="center" className="table-cell" sx={{bgcolor:"#fff"}}>
             <SegmentedButton value={selectorInfo.format} values={['single', 'array']} onChange={onFormatChange} />
+            <div 
+            
+            style={{
+                position: "absolute",
+                right: -36,
+                top: 0,
+                visibility:showOptions?"visible":"hidden"
+            }}>
+                <IconButton aria-label="delete" onClick={deleteSelector}>
+                    <DeleteIcon color="error" />
+                </IconButton>
+            </div>
         </TableCell>
-        <div style={{
-            position: "absolute",
-            right: -36,
-            top: 10,
-        }}>
-            <IconButton aria-label="delete" onClick={deleteSelector}>
-                <DeleteIcon color="error" />
-            </IconButton>
-        </div>
         <div 
-        style={{position: "absolute",left: -26,top: 12, cursor:'grab'}}>
+        style={{
+            position: "absolute",
+            left: -26,
+            top: 12, 
+            cursor:'grab',
+            height:"100%",
+            width:30,
+            visibility:showOptions?"visible":"hidden"
+        }}>
             <ReorderIcon dragControls={dragControls}/>
         </div>
     </Reorder.Item>

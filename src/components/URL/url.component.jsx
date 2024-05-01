@@ -11,8 +11,7 @@ export default function URLTextField() {
     const [classNames, setClassName] = useState('floating-label')
 
     const handlePaste = (text,html,editorState)=>{
-        console.log(text);
-        console.log(html);
+       
 
         setURLState((prevState)=>{
             return EditorState.push(prevState,Modifier.replaceText(prevState.getCurrentContent(),prevState.getSelection(),text.replace(/\n/g,' ')))

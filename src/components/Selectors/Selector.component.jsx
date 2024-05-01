@@ -50,7 +50,7 @@ const Selector = ({selectorInfo, updateSelectors}) => {
         
         })
     }
-    console.log(selectorInfo.format);
+    
     return (
         <div className="selector">
             <TextField id="outlined-basic" required label="Name" onChange={onNameChange} value={selectorInfo.name} variant="outlined" />

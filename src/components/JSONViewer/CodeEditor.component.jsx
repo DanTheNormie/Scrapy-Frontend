@@ -23,8 +23,6 @@ const CodeEditor = ({heading, data, editorRef, readOnly}) => {
     };
 
     useEffect(()=>{
-        console.log('changed');
-        
         setEditorValue(stringify(data.task))
     },[data])
 
@@ -36,7 +34,6 @@ const CodeEditor = ({heading, data, editorRef, readOnly}) => {
 
     const onResetClick = ()=>{
         editorRef.current.setValue(stringify(data))
-        console.log(editorRef.current);
     }
 
     return (

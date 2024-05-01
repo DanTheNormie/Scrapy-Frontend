@@ -43,10 +43,10 @@ export default function SegmentedButton({ value: defaultSelectedValue, values, o
 							action: ({ checked }) => ({
 								sx: {
 									...(checked && {
-										bgcolor: 'rgb(247, 230, 230)',
+										bgcolor: 'var(--background-color)',
 										boxShadow: 'sm',
 										'&:hover': {
-											bgcolor: 'rgb(247, 230, 230)',
+											bgcolor: 'var(--background-color)',
 										},
 									}),
 								},

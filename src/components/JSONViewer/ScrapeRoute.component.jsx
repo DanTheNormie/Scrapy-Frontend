@@ -79,8 +79,6 @@ export default function ScrapeRouteComponent(props) {
             },
         }
 
-        console.log('reaching here');
-
         const res = await fetch(`${LOCAL_BASE_URL}/api/customscrape`, options)
         /* if(!res.ok) throw new Error('Request Failed') */
         return res.json()
@@ -109,7 +107,6 @@ export default function ScrapeRouteComponent(props) {
         })
 
     
-    const handleClick = ()=>{console.log(JSON.stringify({ task: JSON.parse(editorRef.current.getValue())}));}
 
     return (
         <Accordion 

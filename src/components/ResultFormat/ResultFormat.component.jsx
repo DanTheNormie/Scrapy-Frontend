@@ -11,7 +11,7 @@ export const ResultOptions = ({selectorsList, selectorsOrder,setSelectorsOrder, 
 
     useEffect(()=>{
         setResultOptions((prev)=>{
-            console.log({...prev,parentElementSelector:parentElementSelector});
+            
             return{...prev,parentElementSelector:parentElementSelector}
         })
     },[parentElementSelector])
@@ -27,13 +27,13 @@ export const ResultOptions = ({selectorsList, selectorsOrder,setSelectorsOrder, 
     }
 
     const onFormatChange = (format)=>{
-        console.log(format);
+        
         setResultFormat(format)
     }
 
     return(
         <div className="result-options-container">
-            <SortableSelectorList selectorsList={selectorsList} selectorsOrder={selectorsOrder} setSelectorsOrder={setSelectorsOrder}/>
+            {/* <SortableSelectorList selectorsList={selectorsList} selectorsOrder={selectorsOrder} setSelectorsOrder={setSelectorsOrder}/> */}
             
             <TextField required label="ParentElementSelector" value={parentElementSelector} onChange={onParentSelectorChange} variant="outlined" />
             
