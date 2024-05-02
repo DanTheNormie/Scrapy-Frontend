@@ -11,7 +11,6 @@ export const SelectorContainer = ({ selectorsList, setSelectorsList }) => {
 
     const columnRefs = [useRef(), useRef(), useRef(), useRef()]
     const resizing = useRef(-1)
-    columnRefs.forEach((v) => console.log(v))
 
     const TableHeadCellStyle = useMemo(() => {
         return {
@@ -77,8 +76,8 @@ export const SelectorContainer = ({ selectorsList, setSelectorsList }) => {
                 <Table stickyHeader size="small" sx={{maxWidth:'100%'}}>
                     <TableHead>
                         <TableRow
-                            onMouseMove = {(e)=>onDrag(e)}
-                            onMouseUp = {()=>onDragStop()}
+                            /* onMouseMove = {(e)=>onDrag(e)}
+                            onMouseUp = {()=>onDragStop()} */
                         >
                             <TableCell className="first-cell" sx={{ ...TableHeadCellStyle, borderLeftWidth: 1 }} align="center">
                                 S.no.

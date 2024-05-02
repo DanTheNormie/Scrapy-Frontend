@@ -86,25 +86,15 @@ export default function ScrapeRouteComponent(props) {
 
     
 
-    const {
-        isLoading,
-        isError,
-        isSuccess,
-        data, error,
-        isFetching,
-        refetch
-    } = useQuery(
-        
-        
-        {
-            queryKey:[props.task.url],
-            queryFn:() => { return fetchData(editorRef) },
-            enabled: false,
-            refetchOnWindowFocus: false,
-            retry: false,
-            staleTime: 0,
-            cacheTime: 0
-        })
+    const {isLoading,isError,isSuccess, data, error,isFetching,refetch} = useQuery({
+                                                                                    queryKey:[props.task.url],
+                                                                                    queryFn:() => { return fetchData(editorRef) },
+                                                                                    enabled: false,
+                                                                                    refetchOnWindowFocus: false,
+                                                                                    retry: false,
+                                                                                    staleTime: 0,
+                                                                                    cacheTime: 0
+                                                                                })
 
     
 

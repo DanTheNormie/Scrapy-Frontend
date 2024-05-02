@@ -5,6 +5,7 @@ import { compositeDecorator } from '../components/URL/url.utils';
 import URLSection from '../components/URL/urlSection.component';
 import URLTextField from '../components/URL/url.component';
 import Params from '../components/URL/Params/ParamsContainer.component';
+import {default as PS} from '../components/URL/newParams/ParamsContainer';
 /* import SelectorContainer from '../components/Selectors/SelectorsContainer.component'; */
 import { SelectorContainer } from '../components/Selectors/newSelectros/SelectorContainer';
 import './styles.scss'
@@ -85,7 +86,7 @@ export default function CreateScrapeTaskPage() {
         result.task.result = {
             format:resultOptions.format,
             parentElementSelector:resultOptions.parentElementSelector || "",
-            data:selectorsOrder.map((item)=>item.name)
+            data:selectorsList.map((item)=>item.name)
         }
 
         console.log(result);
@@ -106,7 +107,8 @@ export default function CreateScrapeTaskPage() {
                 <EditorStateContext.Provider value={{ urlState, setURLState }}>
                     <URLSection>
                         <URLTextField />
-                        <Params urlState={urlState} params={params} setParams={setParams} />
+                        {/* <Params urlState={urlState} params={params} setParams={setParams} /> */}
+                        <PS urlState={urlState} params={params} setParams={setParams}/>
                     </URLSection>
                 </EditorStateContext.Provider>
 
