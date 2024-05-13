@@ -1,0 +1,51 @@
+
+.text-input-container {
+    
+    position: relative;
+    border: solid 1px var(--text);
+    border-radius: 5px;
+    padding: 16.5px 14px;
+
+    &:hover{
+        cursor: text;
+    }
+
+    &:focus-within{
+        border: solid 1px var(--primary);
+        outline: none;
+        
+    }
+
+    .floating-label {
+        position: absolute;
+        z-index: 10;
+        transform: translate(14px, 0px) scale(1);
+        color: gray;
+        background-color: var(--background);
+        font-size: 16px;
+        padding: 0px 4px;
+        transition: all 100ms;
+    }
+
+    .active-fl {
+        transform: translate(14px, -26px) scale(0.75);
+    }
+
+    .focused-fl {
+        color: var(--primary);
+    }
+
+    .DraftEditor-root{
+        .DraftEditor-editorContainer,
+        .public-DraftEditor-content {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            white-space: pre;
+            width: 100%;
+            
+        }
+    }
+}
